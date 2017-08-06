@@ -41,7 +41,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>pl.gkuczera.files_counter.App</mainClass>
+							<mainClass>pl.gkuczera.files_counter.Application</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
