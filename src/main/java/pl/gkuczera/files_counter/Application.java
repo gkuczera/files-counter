@@ -28,9 +28,17 @@ public class Application {
 			return;						
 		}
 		
+		long startTime = System.currentTimeMillis();
+		
 		FilesCounter counter = new FilesCounter(directory);
 		counter.setLogging(true);
 		counter.count();
+		
+		long endTime = System.currentTimeMillis();
+		
+		long executionTime = endTime - startTime;
+		
+		System.out.format("Execution time: %s (in seconds) %n", executionTime / 1000.d);
 	}
 	
 }

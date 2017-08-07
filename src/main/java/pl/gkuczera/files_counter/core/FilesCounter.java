@@ -27,7 +27,7 @@ public class FilesCounter {
 	public void count() {
 		long filesCount = count(rootDirectory);
 		
-		System.out.format("Files number in the %s directory: %s", rootDirectory.getAbsolutePath(), filesCount);		
+		System.out.format("Files number in the %s directory: %s%n", rootDirectory.getAbsolutePath(), filesCount);		
 	}	
 	
 	private long count(File directory) {
