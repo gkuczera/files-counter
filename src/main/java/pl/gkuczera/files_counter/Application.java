@@ -3,6 +3,7 @@ package pl.gkuczera.files_counter;
 import java.io.File;
 
 import pl.gkuczera.files_counter.core.FilesCounter;
+import pl.gkuczera.files_counter.core.SingleThreadedFilesCounter;
 
 public class Application {
 	
@@ -30,7 +31,7 @@ public class Application {
 		
 		long startTime = System.currentTimeMillis();
 		
-		FilesCounter counter = new FilesCounter(directory);
+		FilesCounter counter = new SingleThreadedFilesCounter(directory);
 		counter.setLogging(true);
 		counter.count();
 		
