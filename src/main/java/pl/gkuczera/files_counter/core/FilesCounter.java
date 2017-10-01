@@ -29,7 +29,28 @@ public class FilesCounter {
 		ForkJoinPool pool = new ForkJoinPool();
 		pool.invoke(new CounterTask(rootDirectory));
 		
+		//System.out.format("Files number in the %s directory: %s%n", rootDirectory.getAbsolutePath(), filesCount);		
 		System.out.format("Files number in the %s directory: %s%n", rootDirectory.getAbsolutePath(), CounterTask.getFilesCount());		
+	}	
+	
+	private long count(File directory) {
+		long filesCount = 0;
+		
+		try {
+			File[] files = directory.listFiles();					
+			
+			for (File file : files) {
+				if (file.isDirectory()) {
+					filesCount += count(file);
+				} else {
+					++filesCount;
+				}
+			}					
+		} catch (Exception exception) {
+			System.out.format("The files inside the %s directory could not be counted (%s)%n", directory.getAbsolutePath(), exception.getMessage());
+		}
+		
+		return filesCount;
 	}
 	
 	private void initialize(String rootDirectoryPath) {		

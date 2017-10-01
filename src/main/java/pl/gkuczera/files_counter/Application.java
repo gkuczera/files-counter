@@ -38,7 +38,7 @@ public class Application {
 		
 		long executionTime = endTime - startTime;
 		
-		System.out.format("Execution time: %s (in seconds) %n", executionTime / 1000d);
+		System.out.format("Execution time: %s (in seconds) %n", executionTime / 1000.d);
 	}
 	
 }
